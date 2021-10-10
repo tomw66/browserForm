@@ -8,17 +8,29 @@
 <body>
 
 <div id="form">
-    <form>
+    <form novalidate>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="country">Country:</label><br>
-        <input type="text" id="country" name="country" required><br><br>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="emailError"></span><br><br>
+
+        <label for="country">UK Country:</label><br>
+        <input type="text" id="country" name="country" required pattern="[Ee]ngland|[Ww]ales|[Ss]cotland|[Nn]orthern [Ii]reland">
+        <span class="error" id="countryError"></span><br><br>
+
         <label for="postcode">Postcode:</label><br>
-        <input type="text" id="postcode" name="postcode" required><br><br>
+        <input type="text" id="postcode" name="postcode" required minlength="6" maxlength="6">
+        <span class="error" id="postcodeError"></span><br><br>
+
+        <!--Can convert to type password later?-->
         <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="text" id="password" name="password" required pattern="^(?=.*?[a-zA-Z])(?=.*?[0-9]).{6,}$">
+        <span class="error" id="passwordError"></span><br><br>
+
         <label for="confirmPassword">Confirm Password:</label><br>
         <input type="text" id="confirmPassword" name="confirmPassword" required>
+        <span class="error" id="confirmPasswordError"></span><br><br>
+        <button id="submit" type="button">Submit</button>
+        <span id="submitReport"></span>
     </form>
 </div>
 
